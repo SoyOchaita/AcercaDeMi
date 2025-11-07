@@ -55,3 +55,61 @@ body {
 .card img:hover {
   transform: scale(1.05);
 }
+
+/* Project cards */
+.project-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(145deg, #1f1f1f, #232323 55%, #1c1c1c);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(0,123,255,0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-card:hover {
+  box-shadow: 0 0 0 1px rgba(0,123,255,0.3), 0 8px 28px -6px rgba(0,123,255,0.35);
+}
+
+.project-card h6, .project-card h5, .project-card h4 {
+  letter-spacing: .5px;
+}
+
+.project-card a.btn {
+  backdrop-filter: blur(2px);
+}
+
+/* Grid tweaks */
+#projects-grid .col-12 { display: flex; }
+#projects-grid .project-card { width: 100%; }
+
+/* Responsive: tighten spacing on md */
+@media (max-width: 991.98px) {
+  #projects-grid .project-card { padding: 1.25rem !important; }
+}
+
+@media (max-width: 575.98px) {
+  .hero { padding: 48px 0; }
+  .project-card { border-radius: 10px; }
+  nav a.btn { flex: 1 1 auto; }
+}
+
+/* Smooth hover scale for buttons in project cards */
+.project-card .btn:hover {
+  transform: translateY(-2px) scale(1.07);
+}
+
+/* Dark alert refinement */
+.alert-dark {
+  background: linear-gradient(135deg,#151515,#1f1f1f);
+  color: #adb5bd;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
